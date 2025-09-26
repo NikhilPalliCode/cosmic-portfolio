@@ -7,8 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:prod": "ng build --configuration production --base-href /cosmic-portfolio/",
-    "deploy": "npm run build:prod && npx angular-cli-ghpages --dir=dist/cosmic-portfolio/browser"
+    "build:prod": "ng build --configuration production --base-href /cosmic-portfolio/" 
   },
   "private": true,
   "dependencies": {
