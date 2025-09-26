@@ -1,0 +1,113 @@
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  background: linear-gradient(45deg, var(--cosmic-primary), var(--cosmic-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.summary-card {
+  background: rgba(10, 10, 26, 0.6);
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  border-radius: 20px;
+  padding: 50px;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cosmic-primary), transparent);
+}
+
+.summary-card p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.summary-card strong {
+  color: var(--cosmic-primary);
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin: 40px 0;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: rgba(157, 78, 221, 0.1);
+  border: 1px solid rgba(157, 78, 221, 0.2);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.highlight-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--cosmic-secondary);
+}
+
+.highlight-item i {
+  font-size: 1.5rem;
+  color: var(--cosmic-primary);
+  min-width: 30px;
+}
+
+.highlight-item span {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 60px 15px;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+  }
+  
+  .summary-card {
+    padding: 30px 20px;
+  }
+  
+  .highlights {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .highlight-item {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .summary-card p {
+    font-size: 1.1rem;
+  }
+}

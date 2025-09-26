@@ -1,0 +1,94 @@
+<div class="projects-container">
+  <h2 class="section-title">Projects</h2>
+  <p class="section-subtitle">Explore my interstellar development journey</p>
+  
+  <div class="projects-wrapper">
+    <button class="nav-btn left" 
+            (click)="scrollLeftAction()" 
+            [class.hidden]="currentIndex === 0"
+            aria-label="Previous project"
+            [attr.disabled]="currentIndex === 0 ? 'true' : null">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    
+    <div class="projects-scroller" 
+         #scroller
+         (scroll)="onScroll()"
+         (mousedown)="onMouseDown($event)"
+         (mousemove)="onMouseMove($event)"
+         (mouseup)="onMouseUp()"
+         (mouseleave)="onMouseUp()"
+         (touchstart)="onTouchStart($event)"
+         (touchmove)="onTouchMove($event)"
+         (touchend)="onTouchEnd()">
+      <div class="projects-track">
+        @for (project of projects; track project.title; let i = $index) {
+          <div class="project-card" [class.active]="i === currentIndex">
+            <div class="card-glow"></div>
+            <div class="project-header">
+              <h3>{{ project.title }}</h3>
+              <div class="project-links">
+                @if (project.link) {
+                  <a [href]="project.link" target="_blank" class="project-link" aria-label="View project">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                }
+                @if (project.github) {
+                  <a [href]="project.github" target="_blank" class="project-link github" aria-label="GitHub repository">
+                    <i class="fab fa-github"></i>
+                  </a>
+                }
+              </div>
+            </div>
+            <p class="project-description">{{ project.description }}</p>
+            <div class="tech-tags">
+              @for (tech of project.technologies; track tech) {
+                <span class="tech-tag">{{ tech }}</span>
+              }
+            </div>
+            <div class="project-footer">
+              <button class="view-demo-btn" (click)="goToProject(i)">
+                <i class="fas fa-eye"></i>
+                {{ project.projectTech }}
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+    
+    <button class="nav-btn right" 
+            (click)="scrollRightAction()" 
+            [class.hidden]="currentIndex === projects.length - 1"
+            aria-label="Next project"
+            [attr.disabled]="currentIndex === projects.length - 1 ? 'true' : null">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+  
+  <div class="project-indicators">
+    @for (project of projects; track project.title; let i = $index) {
+      <button 
+        class="indicator" 
+        [class.active]="i === currentIndex"
+        (click)="goToProject(i)"
+        [attr.aria-label]="'Go to project ' + (i + 1)">
+      </button>
+    }
+  </div>
+
+  <div class="projects-stats">
+    <div class="stat-item">
+      <div class="stat-number">{{ projects.length }}+</div>
+      <div class="stat-label">Projects Completed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">4+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">10k+</div>
+      <div class="stat-label">Lines of Code</div>
+    </div>
+  </div>
+</div>

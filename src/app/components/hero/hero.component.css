@@ -1,0 +1,510 @@
+.hero-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 0 20px;
+}
+
+.hero-content {
+  max-width: 1000px;
+  z-index: 2;
+}
+
+/* Profile Section */
+.profile-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.profile-image-container {
+  position: relative;
+}
+
+.profile-image-wrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--cosmic-primary);
+  box-shadow: 
+    0 0 30px var(--cosmic-primary),
+    0 0 60px var(--cosmic-secondary),
+    inset 0 0 20px rgba(0, 243, 255, 0.3);
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 0 40px var(--cosmic-primary),
+    0 0 80px var(--cosmic-accent),
+    inset 0 0 30px rgba(0, 243, 255, 0.5);
+}
+
+.profile-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+    var(--cosmic-primary) 0%, 
+    transparent 70%
+  );
+  opacity: 0.3;
+  animation: pulseGlow 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+.profile-orbits {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+}
+
+.orbit {
+  position: absolute;
+  border: 1px solid var(--cosmic-primary);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+}
+
+.orbit-1 {
+  width: 220px;
+  height: 220px;
+  animation: orbitRotate 8s linear infinite;
+}
+
+.orbit-2 {
+  width: 240px;
+  height: 240px;
+  animation: orbitRotate 12s linear infinite reverse;
+}
+
+.orbit-3 {
+  width: 260px;
+  height: 260px;
+  animation: orbitRotate 15s linear infinite;
+}
+
+.title-section {
+  text-align: left;
+  max-width: 500px;
+}
+
+.cosmic-title h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(45deg, var(--cosmic-primary), var(--cosmic-secondary), var(--cosmic-accent));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease infinite;
+}
+
+.title-underline {
+  width: 150px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--cosmic-primary), transparent);
+  margin: 0 0 20px 0;
+  border-radius: 2px;
+}
+
+.profession {
+  font-size: 1.8rem;
+  color: var(--cosmic-text);
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: var(--cosmic-primary);
+  background: rgba(0, 243, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  width: fit-content;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--cosmic-primary);
+  border-radius: 50%;
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  opacity: 0.8;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+}
+
+.contact-item i {
+  color: var(--cosmic-primary);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+
+/* Rest of the CSS remains the same */
+.cosmic-btn {
+  position: relative;
+  padding: 15px 30px;
+  background: rgba(10, 10, 26, 0.8);
+  border: 2px solid var(--cosmic-primary);
+  color: var(--cosmic-text);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.cosmic-btn .btn-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.cosmic-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--cosmic-glow);
+}
+
+.cosmic-btn:hover .btn-glow {
+  left: 100%;
+}
+
+.cosmic-btn i {
+  margin-right: 10px;
+}
+
+/* Light Button Styles */
+.light-button button.bt {
+  position: relative;
+  height: 120px;
+  display: flex;
+  align-items: flex-end;
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.light-button button.bt .button-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 80px;
+  background-color: var(--cosmic-darker);
+  border-radius: 10px;
+  color: var(--cosmic-text);
+  font-weight: 600;
+  transition: 300ms;
+  outline: var(--cosmic-primary) 2px solid;
+  outline-offset: 5px;
+  font-size: 0.8rem;
+}
+
+.light-button button.bt .button-holder i {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  color: var(--cosmic-text);
+  transition: 300ms;
+}
+
+.light-button button.bt .light-holder {
+  position: absolute;
+  height: 120px;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.light-button button.bt .light-holder .dot {
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--cosmic-darker);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.light-button button.bt .light-holder .light {
+  position: absolute;
+  top: 0;
+  width: 160px;
+  height: 160px;
+  clip-path: polygon(50% 0%, 25% 100%, 75% 100%);
+  background: transparent;
+}
+
+.light-button button.bt:hover .button-holder i {
+  color: var(--cosmic-primary);
+}
+
+.light-button button.bt:hover .button-holder {
+  color: var(--cosmic-primary);
+  outline: var(--cosmic-primary) 2px solid;
+  outline-offset: 2px;
+  transform: translateY(-5px);
+}
+
+.light-button button.bt:hover .light-holder .light {
+  background: linear-gradient(
+    180deg,
+    var(--cosmic-primary) 0%,
+    transparent 75%,
+    transparent 100%
+  );
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--cosmic-primary);
+  font-size: 0.9rem;
+}
+
+.scroll-line {
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--cosmic-primary), transparent);
+  margin-bottom: 10px;
+  animation: bounce 2s infinite;
+}
+
+/* New Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes orbitRotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes statusPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .profile-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .title-section {
+    text-align: center;
+  }
+  
+  .title-underline {
+    margin: 0 auto 20px auto;
+  }
+  
+  .status-badge {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .cosmic-title h1 {
+    font-size: 3rem;
+  }
+  
+  .profile-image-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .profile-orbits {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .orbit-1 {
+    width: 170px;
+    height: 170px;
+  }
+  
+  .orbit-2 {
+    width: 190px;
+    height: 190px;
+  }
+  
+  .orbit-3 {
+    width: 210px;
+    height: 210px;
+  }
+  
+  .profession {
+    font-size: 1.4rem;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .cosmic-btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cosmic-title h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content {
+    padding: 0 10px;
+  }
+  
+  .profile-image-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .profile-orbits {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .orbit-1 {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .orbit-2 {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .orbit-3 {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .contact-item {
+    font-size: 1rem;
+  }
+}

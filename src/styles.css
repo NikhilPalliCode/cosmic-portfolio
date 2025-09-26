@@ -1,1 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
+/* Import Font Awesome from CDN */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* Cosmic Color Scheme */
+:root {
+  --cosmic-primary: #00f3ff;
+  --cosmic-secondary: #9d4edd;
+  --cosmic-accent: #ff006e;
+  --cosmic-dark: #0a0a1a;
+  --cosmic-darker: #050510;
+  --cosmic-text: #e0e0ff;
+  --cosmic-glow: 0 0 10px var(--cosmic-primary), 
+                0 0 20px var(--cosmic-primary), 
+                0 0 30px var(--cosmic-secondary);
+}
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, var(--cosmic-darker) 0%, var(--cosmic-dark) 100%);
+  color: var(--cosmic-text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+   padding-top: 80px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cosmic-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cosmic-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cosmic-secondary);
+}
+
+/* Selection Colors */
+::selection {
+  background: var(--cosmic-primary);
+  color: var(--cosmic-dark);
+}
+
+::-moz-selection {
+  background: var(--cosmic-primary);
+  color: var(--cosmic-dark);
+}
+
+@media (max-width: 968px) {
+  body {
+    padding-top: 70px;
+  }
+}

@@ -1,0 +1,63 @@
+<nav class="navbar" [class.scrolled]="isScrolled" [class.mobile-open]="isMobileMenuOpen">
+  <div class="nav-container">
+    <!-- Logo/Brand -->
+    <div class="nav-brand">
+      <div class="logo">
+        <div class="logo-icon">🚀</div>
+        <span class="logo-text">Nikhil Palli</span>
+      </div>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <div class="nav-menu">
+      @for (section of sections; track section.id) {
+        <a class="nav-link" 
+           [class.active]="currentSection === section.id"
+           (click)="scrollToSection(section.id)">
+          <i [class]="section.icon"></i>
+          <span>{{ section.name }}</span>
+          <div class="nav-indicator"></div>
+        </a>
+      }
+    </div>
+
+    <!-- Desktop CTA Button -->
+    <div class="nav-actions">
+      <button class="nav-resume-btn" (click)="downloadResume()">
+        <i class="fas fa-file-download"></i>
+        <span>Resume</span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-toggle" (click)="toggleMobileMenu()" aria-label="Toggle menu">
+      <span class="toggle-bar"></span>
+      <span class="toggle-bar"></span>
+      <span class="toggle-bar"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-menu" [class.active]="isMobileMenuOpen">
+    <div class="mobile-menu-content">
+      @for (section of sections; track section.id) {
+        <a class="mobile-nav-link" 
+           [class.active]="currentSection === section.id"
+           (click)="scrollToSection(section.id)">
+          <i [class]="section.icon"></i>
+          <span>{{ section.name }}</span>
+        </a>
+      }
+      <button class="mobile-resume-btn" (click)="downloadResume()">
+        <i class="fas fa-file-download"></i>
+        Download Resume
+      </button>
+    </div>
+  </div>
+
+  <!-- Navigation Background Effects -->
+  <div class="nav-background">
+    <div class="nav-glow"></div>
+    <div class="nav-particles"></div>
+  </div>
+</nav>
